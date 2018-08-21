@@ -1,6 +1,8 @@
 require 'pry'
 
 class Word
+  include Enumerable
+
   def initialize(str)
     @word = str
   end
@@ -17,21 +19,13 @@ class Word
     scores = { "D" => 2, "G" => 2, "K" => 5, "J" => 8, "X" => 8, "Q" => 10, "Z" => 10}
     @scores = scores
     ones = ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"]
-    ones.each do |i|
-      @scores.store(i, 1)
-    end
+    ones.map { |i| @scores.store(i, 1) }
     threes = ["B", "C", "M", "P"]
-    threes.each do |i|
-      @scores.store(i, 3)
-    end
+    threes.map { |i| @scores.store(i, 3) }
     fours = ["F", "H", "V", "W", "Y"]
-    fours.each do |i|
-      @scores.store(i, 4)
-    end
+    fours.map { |i| @scores.store(i, 4) }
     sum = 0
-    neutralize.each do |i|
-      sum = sum + @scores.fetch(i)
-    end
+    neutralize.map { |i| sum = sum + @scores.fetch(i) }
     return sum
   end
 end
