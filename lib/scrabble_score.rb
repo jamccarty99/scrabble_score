@@ -6,13 +6,12 @@ class Word
   def initialize(str)
     @word = str
   end
-  def all_letters?
+  def neutralize
     if !(@word[/[a-zA-Z]+/]  == @word)
       return "Not a valid Scrabble word"
+    else
+      characters = @word.upcase().chars()
     end
-  end
-  def neutralize
-    characters = @word.upcase().chars()
   end
 
   def scrabble
