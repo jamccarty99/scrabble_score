@@ -8,14 +8,14 @@ describe('#neutralize') do
   end
 end
 
-describe('#neutralize') do
+describe('#all_letters?') do
   it("returns an error if str is not all letters") do
     word = Word.new("=@*")
-    expect(word.neutralize()).to(eq("Not a valid Scrabble word"))
+    expect(word.all_letters?()).to(eq("Not a valid Scrabble word"))
   end
   it("returns an error if str is not all letters") do
     word = Word.new("co3w")
-    expect(word.neutralize()).to(eq("Not a valid Scrabble word"))
+    expect(word.all_letters?()).to(eq("Not a valid Scrabble word"))
   end
   it("continues on to scrabbel method if it is a valid word") do
     word =Word.new("maximize")

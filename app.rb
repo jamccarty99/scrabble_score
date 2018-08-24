@@ -7,7 +7,7 @@ require('./lib/scrabble_score')
 get('/') do
   erb(:input)
 end
-get('/output') do
+post('/output') do
   @word = params.fetch("word")
   word = Word.new(@word)
   if word.all_letters?
